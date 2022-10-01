@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useEffect } from "react";
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import Airtable from 'airtable';
 import CustomMarker from "./CustomMarker";
-import Geocode from "react-geocode";
 
 const containerStyle = {
   width: '100vw',
@@ -20,7 +19,6 @@ Airtable.configure({
 
 const base = Airtable.base('appQJMizPte9hDL9a');
 const GOOG_API = "AIzaSyBifI01enjQL5CJu8SvXKfZLqueUN2dWsY";
-// Geocode.setRegion("es");
 
 function HomePageScreen() {
   const { isLoaded } = useJsApiLoader({
@@ -60,15 +58,11 @@ function HomePageScreen() {
     setMap(null)
   }, [])
 
-  // Get records from Airtable whenever DOM mounts and updates/changes
   useEffect(() => {
     getSites();
     console.log(siteRecords);
     }, [siteRecords]);
 
-//   useEffect(() => {
-//     createMarkers();
-//     }, []);
   return isLoaded ? (
         <GoogleMap
             mapContainerStyle={containerStyle}
