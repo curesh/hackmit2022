@@ -69,7 +69,7 @@ function HomePageScreen() {
   return isLoaded ? (
     <div style={{display: 'flex', flexDirection: 'column'}}>
       <div style={{fontSize: '2em'}}>
-        Find a Community Garden
+        Find a community garden
       </div>
       <div style={{display: 'flex', flexDirection: 'row'}}>
           <GoogleMap
