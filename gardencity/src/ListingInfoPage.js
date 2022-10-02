@@ -33,7 +33,7 @@ function ListingInfoPage(){
     return(
         <>
         {listingRecord!== null && listingRecord !== undefined ? (
-            <div style={{margin: '3em 2em'}}>
+            <div style={{margin: '2em 2em'}}>
                 <div style={{display:'flex', flexDirection:'row', overflow: 'true'}}>
                     <div style={{display:'flex', flexDirection:'column', overflow: 'false'}}>
                         <p className='site-title'>{listingRecord.fields['Site Name']}</p>
