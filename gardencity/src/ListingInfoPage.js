@@ -44,10 +44,10 @@ function ListingInfoPage(){
                             {new Date(listingRecord.fields['End Date']).toLocaleString("en-US", {month: "short", day:"numeric"})}
                         </p>
                     </div>
-                    <div style={{margin:'.4em 0 0 3em'}}>
+                    <div style={{margin:'.9em 0 0 3em'}}>
                         <p className='site-subtitle'>by {listingRecord.fields['Lister Name']}</p>
                     </div>
-                    <div style={{margin:'0 0 0 auto', overflow: 'false'}}>
+                    <div style={{margin:'.7em 0 0 auto', overflow: 'false'}}>
                         <div style={{background:'#2a7628', padding:'0.5em 2em', borderRadius:'10px'}}><button style={{background:'none', border:'none'}}><span style={{fontFamily:'Rubik', color:'white', fontSize:'15px'}}>Request a plot</span></button></div>
                         <p style={{textAlign:'end', color:'#967b37', fontFamily:'Rubik', fontStyle:'italic'}}>{listingRecord.fields['Num Plots']} plots available</p>
                     </div>
@@ -97,10 +97,6 @@ function ListingInfoPage(){
                         <div style={{backgroundColor:'#f8f8f8', borderRadius:'15px',padding:'0.5em 0 0 1em'}}>
                             <p style={{fontFamily:'Manrope', fontWeight:'bold', fontSize:'20px'}}>Availability</p>
                             <p style={{fontSize:'14px', fontFamily:'Rubik', fontWeight: 100, display:'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center'}}>
-                                {new Date(listingRecord.fields['Start Date']).toLocaleString("en-US", {month: "short", day:"numeric"})}
-                                {' - '}
-                                {new Date(listingRecord.fields['End Date']).toLocaleString("en-US", {month: "short", day:"numeric"})}
-                                {' on'}
                                 {listingRecord.fields['Availability'].map((element)=> (
                                     <p style={{backgroundColor:'#D5EDBC', color:'#2A7628', borderRadius:'15px', padding: '.25em .75em', margin: '.25em', width:'min-content'}}>{element[0]}</p>
                                 ))}
