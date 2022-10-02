@@ -31,6 +31,8 @@ function HomePageScreen() {
 
   const [map, setMap] = React.useState(null)
   const [siteRecords, setSiteRecords] = React.useState([])
+  const [currCoords, setCurrCoords] = React.useState(center)
+  const [currZoom, setCurrZoom] = React.useState(9)
 
   function getSites() {
     base('Sites').select({ view: 'Grid view' }).all()
@@ -46,6 +48,8 @@ function HomePageScreen() {
           id={i}
           key={i}
           address={address}
+          setCurrCoords={setCurrCoords}
+          setCurrZoom={setCurrZoom}
         />
       )
   });
@@ -63,8 +67,7 @@ function HomePageScreen() {
 
   useEffect(() => {
     getSites();
-    console.log(siteRecords);
-    }, [siteRecords]);
+  }, []);
 
   return isLoaded ? (
     <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -74,8 +77,8 @@ function HomePageScreen() {
       <div style={{display: 'flex', flexDirection: 'row'}}>
           <GoogleMap
               mapContainerStyle={containerStyle}
-              center={center}
-              zoom={9}
+              center={currCoords}
+              zoom={currZoom}
               onLoad={onLoad}
               onUnmount={onUnmount}
           >
@@ -97,6 +100,8 @@ function HomePageScreen() {
                   plantTypes={site.fields['Plant Type']}
                   capacity={site.fields['Volunteer Capacity']}
                   imageURL={site.fields.Images[0].url}
+                  setCurrCoords={setCurrCoords}
+                  setCurrZoom={setCurrZoom}
                 />
               ))}
             </div>
