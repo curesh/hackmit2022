@@ -8,7 +8,7 @@ import { v4 } from "uuid";
 
 const containerStyle = {
   width: '65vw',
-  height: '80vh',
+  height: '70vh',
 };
 
 const center = {
@@ -70,8 +70,8 @@ function HomePageScreen() {
   }, []);
 
   return isLoaded ? (
-    <div style={{display: 'flex', flexDirection: 'column'}}>
-      <div style={{fontSize: '2em'}}>
+    <div style={{display: 'flex', flexDirection: 'column', margin: '2em', marginBottom: 0}}>
+      <div style={{fontFamily: 'Manrope', fontWeight: 700, fontSize: '40px', margin: '0 0 .25em 0'}}>
         Find a community garden
       </div>
       <div style={{display: 'flex', flexDirection: 'row'}}>
@@ -84,12 +84,15 @@ function HomePageScreen() {
           >
             {siteRecords.map(getMarkers)}
           </GoogleMap>
-          <div style={{display:'flex', flexDirection: 'column', width: '35vw', height: '100vh', fontSize:'2em'}}>
-            Spaces
-            <div style={{marginTop: '.5em', overflowY: 'auto'}}>
+          <div style={{display:'flex', flexDirection: 'column', width: '35vw', height: '100vh', fontSize:'2em', marginLeft: '.5em'}}>
+            <p style={{fontFamily: 'Manrope', fontWeight: 700, margin: 0}}>
+              Spaces
+            </p>
+            <div style={{ marginTop: '.5em', maxHeight: '62.5vh',overflowY: 'auto'}}>
               {siteRecords.map((site) => (
                 <SiteSidebarComponent
                   key={v4()}
+                  id={site.id}
                   siteName={site.fields['Site Name']}
                   location={site.fields['Location']}
                   startDate={site.fields['Start Date']}

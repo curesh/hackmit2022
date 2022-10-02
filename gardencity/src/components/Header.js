@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import Logo from '../assets/Logo.png';
+import Logo from '../Assets/Images/Logo.png';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { v4 as uuidv4 } from 'uuid';
