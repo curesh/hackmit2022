@@ -18,7 +18,6 @@ const CustomMarker = (props) => {
               c = response.results[0].geometry.location;
               console.log(c);
               setCoords(c);
-
             },
             (error) => {
               console.error(error);
