@@ -1,3 +1,47 @@
+@font-face {
+  font-family: 'Manrope';
+  src: url('./Assets/Fonts/Manrope-Bold.eot'); /* IE9 Compat Modes */
+  src: url('./Assets/Fonts/Manrope-Bold.woff') format('woff'), /* Modern Browsers */
+       url('./Assets/Fonts/Manrope-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('./Assets/Fonts/Manrope-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('./Assets/Fonts/Rubik-Regular.eot'); /* IE9 Compat Modes */
+  src: url('./Assets/Fonts/Rubik-Regular.woff') format('woff'), /* Modern Browsers */
+       url('./Assets/Fonts/Rubik-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('./Assets/Fonts/Rubik-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('./Assets/Fonts/Rubik-Medium.eot'); /* IE9 Compat Modes */
+  src: url('./Assets/Fonts/Rubik-Medium.woff') format('woff'), /* Modern Browsers */
+       url('./Assets/Fonts/Rubik-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('./Assets/Fonts/Rubik-Medium.woff2') format('woff2');
+  font-weight: medium;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('./Assets/Fonts/Rubik-Italic.eot'); /* IE9 Compat Modes */
+  src: url('./Assets/Fonts/Rubik-Italic.woff') format('woff'), /* Modern Browsers */
+       url('./Assets/Fonts/Rubik-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('./Assets/Fonts/Rubik-Italic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
 .App {
   text-align: center;
 }
