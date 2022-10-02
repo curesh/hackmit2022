@@ -6,6 +6,7 @@ import {
 import HomePageScreen from './components/HomePage';
 import LandingPage from './LandingPage';
 import ListingInfoPage from './ListingInfoPage';
+import MapSidebar from './components/MapSidebar';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path='/' element={<LandingPage />} />
       <Route path='/map' element={<HomePageScreen />} />
       <Route path='/listingInfo/:listingID' element={<ListingInfoPage />} />
+      <Route path='/sidebarTemp' element={<MapSidebar/>} />
     </Routes>
   );
 }

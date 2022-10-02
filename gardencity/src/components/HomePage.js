@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from "react";
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import Airtable from 'airtable';
+import CustomMarker from "./CustomMarker";
 
 const containerStyle = {
   width: '100vw',
@@ -7,17 +9,44 @@ const containerStyle = {
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523
+  lat: 34.0522,
+  lng: -118.2437
 };
+
+Airtable.configure({
+  apiKey: 'keyGYLBhqwHr7QccH',
+});
+
+const base = Airtable.base('appQJMizPte9hDL9a');
+const GOOG_API = "AIzaSyBifI01enjQL5CJu8SvXKfZLqueUN2dWsY";
 
 function HomePageScreen() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyBifI01enjQL5CJu8SvXKfZLqueUN2dWsY"
+    googleMapsApiKey: GOOG_API
   })
 
   const [map, setMap] = React.useState(null)
+  const [siteRecords, setSiteRecords] = React.useState([])
+
+  function getSites() {
+    base('Sites').select({ view: 'Grid view' }).all()
+      .then((siteRecords) => {
+        setSiteRecords(siteRecords);
+      });
+  }
+
+  const getMarkers = ((props, i)=> {
+    const address = props.get('Location');
+    return (
+        <CustomMarker
+          id={i}
+          key={i}
+          address={address}
+        />
+      )
+  });
+
 
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center);
@@ -29,17 +58,21 @@ function HomePageScreen() {
     setMap(null)
   }, [])
 
+  useEffect(() => {
+    getSites();
+    console.log(siteRecords);
+    }, [siteRecords]);
+
   return isLoaded ? (
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
-        { /* Child components, such as markers, info windows, etc. */ }
-        <></>
-      </GoogleMap>
+        <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={9}
+            onLoad={onLoad}
+            onUnmount={onUnmount}
+        >
+          {siteRecords.map(getMarkers)}
+        </GoogleMap>
   ) : <></>
 }
 

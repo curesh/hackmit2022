@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams} from 'react-router-dom';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
+import GridOnIcon from '@mui/icons-material/GridOn';
+import GrassOutlinedIcon from '@mui/icons-material/GrassOutlined';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import './ListingInfoPage.css';
 
 function ListingInfoPage(){
@@ -57,15 +62,33 @@ function ListingInfoPage(){
                     <div style={{display:'flex', flexDirection:'column', margin:'0'}}>
                         <div style={{backgroundColor:'#f8f8f8', borderRadius:'15px',padding:'0.5em 0 0 1em'}}>
                             <p style={{fontFamily:'Manrope', fontWeight:'bold', fontSize:'20px'}}>Details</p>
-                            <div style={{display:'flex', flexDirection:'row'}}>
-                                <LightModeOutlinedIcon sx={{color: '#2A7628', paddingRight: 1}}/>
-                                <h6>{listingRecord.fields['Lighting']}</h6>
+                            <div style={{display:'flex', flexDirection:'column',rowGap:'8px' }}>
+                                <div style={{display:'flex', flexDirection:'row'}}>
+                                    <LightModeOutlinedIcon sx={{color: '#2A7628', paddingRight: 1}}/>
+                                    <p style={{margin:'3px', fontSize:'14px'}}>{listingRecord.fields['Lighting']}</p>
+                                </div>
+                                <div style={{display:'flex', flexDirection:'row'}}>
+                                    <PeopleAltOutlinedIcon sx={{color: '#2A7628', paddingRight: 1}}/>
+                                    <p style={{marginTop:'3px',fontSize:'14px', marginRight: '1em'}}>Volunteer Capacity: {listingRecord.fields['Volunteer Capacity']} per plot</p>
+                                </div>
+                                <div style={{display:'flex', flexDirection:'row'}}>
+                                    <GrassOutlinedIcon sx={{color: '#2A7628', paddingRight: 1}}/>
+                                    <p style={{marginTop:'3px',fontSize:'14px', margin: '0 1em 0 0'}}>{listingRecord.fields['Plant Type'].join(', ')} allowed</p>
+                                </div>
+                                <div style={{display:'flex', flexDirection:'row'}}>
+                                    <ConstructionOutlinedIcon sx={{color: '#2A7628', paddingRight: 1}}/>
+                                    <p style={{margin:'3px',fontSize:'14px', lineHeight:'3px'}}>Supplies included: {listingRecord.fields['Available Supplies'].map((element)=><p>{element}</p>)}</p>
+                                </div>
+                                <div style={{display:'flex', flexDirection:'row'}}>
+                                    <GridOnIcon sx={{color: '#2A7628', paddingRight:0.25}}/>
+                                    <p style={{margin:'9px',fontSize:'14px', lineHeight:'3px'}}>{listingRecord.fields['Plot Size']} plots</p>
+                                </div>
+                                <div style={{display:'flex', flexDirection:'row', margin:'13px 0 2em 0'}}>
+                                    <LockOutlinedIcon sx={{color: '#2A7628', paddingRight: 0.25}}/>
+                                    <p style={{margin:'10px',fontSize:'14px', lineHeight:'3px'}}>{listingRecord.fields['Safety']}</p>
+                                </div>
                             </div>
-                            
-                            <h5>Volunteer Capacity: {listingRecord.fields['Volunteer Capacity']} per plot</h5>
-                            <h6>Supplies included: {listingRecord.fields['Available Supplies'].map((element)=><p>{element}</p>)}</h6>
-                            <h5>{listingRecord.fields['Plot Size']} plots</h5>
-                            <h6>{listingRecord.fields['Safety']}</h6>
+                           
                         </div>
                         <div>
                             <p>Availability</p>
