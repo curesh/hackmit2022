@@ -28,6 +28,16 @@
   color: #61dafb;
 }
 
+.landing-page-body{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content:center;
+  /* background-image:url('./assets/landingPageDisplay.svg'); */
+  height:50vh;
+  /* margin-top:40vh; */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
